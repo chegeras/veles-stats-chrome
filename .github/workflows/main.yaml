@@ -1,0 +1,12 @@
+on:
+  pull_request:
+    branches:
+    - main
+jobs:
+  archive-build-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Build extention
+        run: npm build
+      - name: Step 1 - Pack extention
+        run: zip -r veles.zip ./dist
