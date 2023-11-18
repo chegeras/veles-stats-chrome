@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Veles Stats Extensions",
+    "description": "Base Level Extension",
+    "version": "0.0.1",
+    "icons": {
+      "512": "icon.png"
+    },
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action":{}
+  }
