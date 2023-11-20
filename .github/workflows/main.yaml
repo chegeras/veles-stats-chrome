@@ -5,7 +5,17 @@ jobs:
   archive-build-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Build extention
-        run: npm build
-      - name: Step 1 - Pack extention
-        run: zip -r veles.zip ./dist
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: veles-${{github.ref_name}}
+          path: ./dist
